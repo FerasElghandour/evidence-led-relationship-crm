@@ -1,0 +1,118 @@
+{
+  "kind": "crm",
+  "input_type": "synthetic fixtures; no client data",
+  "scenarios": [
+    {
+      "name": "No supporting evidence",
+      "summary": "Cannot mark 'Example Manufacturing' ICP Approved: no structured Evidence record supports the company fit. A classification or fit column set without a supporting Evidence row is not enough.",
+      "rows": [
+        [
+          "Research approval",
+          "Blocked"
+        ],
+        [
+          "Classification may support commercial qualification",
+          "No"
+        ],
+        [
+          "Actual opportunity created",
+          "No, additional opportunity guards still apply"
+        ],
+        [
+          "Company record",
+          "Synthetic .example company"
+        ]
+      ],
+      "trace": {
+        "classification": null,
+        "research_approved": false,
+        "qualifying_classification": false,
+        "scope": "Classification eligibility does not by itself create an opportunity or verify factual truth."
+      }
+    },
+    {
+      "name": "Unsupported assumption",
+      "summary": "Cannot mark 'Example Manufacturing' ICP Approved: no structured Evidence record supports the company fit. A classification or fit column set without a supporting Evidence row is not enough.",
+      "rows": [
+        [
+          "Research approval",
+          "Blocked"
+        ],
+        [
+          "Classification may support commercial qualification",
+          "No"
+        ],
+        [
+          "Actual opportunity created",
+          "No, additional opportunity guards still apply"
+        ],
+        [
+          "Company record",
+          "Synthetic .example company"
+        ]
+      ],
+      "trace": {
+        "classification": "Unsupported Assumption",
+        "research_approved": false,
+        "qualifying_classification": false,
+        "scope": "Classification eligibility does not by itself create an opportunity or verify factual truth."
+      }
+    },
+    {
+      "name": "Research inference",
+      "summary": "Research approval gate accepted the structured evidence.",
+      "rows": [
+        [
+          "Research approval",
+          "Accepted"
+        ],
+        [
+          "Classification may support commercial qualification",
+          "No"
+        ],
+        [
+          "Actual opportunity created",
+          "No, additional opportunity guards still apply"
+        ],
+        [
+          "Company record",
+          "Synthetic .example company"
+        ]
+      ],
+      "trace": {
+        "classification": "Inference",
+        "research_approved": true,
+        "qualifying_classification": false,
+        "scope": "Classification eligibility does not by itself create an opportunity or verify factual truth."
+      }
+    },
+    {
+      "name": "Confirmed synthetic fact",
+      "summary": "Research approval gate accepted the structured evidence.",
+      "rows": [
+        [
+          "Research approval",
+          "Accepted"
+        ],
+        [
+          "Classification may support commercial qualification",
+          "Yes"
+        ],
+        [
+          "Actual opportunity created",
+          "No, additional opportunity guards still apply"
+        ],
+        [
+          "Company record",
+          "Synthetic .example company"
+        ]
+      ],
+      "trace": {
+        "classification": "Confirmed Fact",
+        "research_approved": true,
+        "qualifying_classification": true,
+        "scope": "Classification eligibility does not by itself create an opportunity or verify factual truth."
+      }
+    }
+  ]
+}

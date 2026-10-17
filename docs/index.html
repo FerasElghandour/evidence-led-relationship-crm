@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Evidence-Led Relationship CRM: implementation, evidence and interactive demonstration by Feras Elghandour."><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'"><meta name="color-scheme" content="light"><title>Evidence-Led Relationship CRM | Feras Elghandour</title><link rel="stylesheet" href="style.css"><link rel="icon" href="data:,"></head><body class="report"><a class="skip" href="#main">Skip to content</a><header><nav aria-label="Main navigation"><a href="https://feraselghandour.github.io/">Feras Elghandour</a><span><a href="https://github.com/FerasElghandour">GitHub</a> · <a href="https://www.linkedin.com/in/feras-elghandour/">LinkedIn / inquiries</a></span></nav></header><main id="main"><section class="hero"><p class="eyebrow">Interactive case study / crm</p><h1>Evidence-Led Relationship CRM</h1><p class="intro">Explore how evidence changes research approval and commercial qualification. Every outcome comes from the application’s domain rules.</p><div class="links"><a href="https://github.com/FerasElghandour/evidence-led-relationship-crm">Implementation &amp; reproduction</a><a href="https://www.linkedin.com/in/feras-elghandour/">Discuss a project</a></div></section><section class="section"><h2>Explore the evidence</h2><div class="controls"><div class="field"><label for="scenario">Scenario</label><select id="scenario"><option value="0">No supporting evidence</option><option value="1">Unsupported assumption</option><option value="2">Research inference</option><option value="3">Confirmed synthetic fact</option></select></div></div><p id="finding" class="note" role="status" aria-live="polite"></p><div id="chart" aria-label="Comparison chart"></div><div id="results" class="table-wrap"></div><p id="decision" class="status"></p><button id="download" type="button">Download evidence JSON</button></section><section class="section split"><div><h2>How it works</h2><div class="diagram" aria-label="Implementation flow"><span>Input</span> <b aria-hidden="true">→</b> <span>Validation</span> <b aria-hidden="true">→</b> <span>Decision</span> <b aria-hidden="true">→</b> <span>Evidence</span></div><p>A fresh in-memory database is populated with explicitly synthetic records. Each result calls the application’s company-stage guard and qualification classifier.</p><p>Research fit can admit an inference; commercial qualification uses a stricter classification gate. A user-applied “confirmed” label does not independently verify a fact.</p><p>The Python application is a local single-user tool. This page is a recorded workflow explorer; it does not host a shared CRM or collect contact records.</p></div><aside><h2>Inspect the result</h2><p>The table changes with the selected view. Data downloads include the evidence used here.</p><p><a href="https://github.com/FerasElghandour/evidence-led-relationship-crm/blob/main/README.md">Read the technical case study</a></p><details><summary>Recorded trace / dataset</summary><pre id="details">{
+  &quot;kind&quot;: &quot;crm&quot;,
+  &quot;input_type&quot;: &quot;synthetic fixtures; no client data&quot;,
+  &quot;scenarios&quot;: [
+    {
+      &quot;name&quot;: &quot;No supporting evidence&quot;,
+      &quot;summary&quot;: &quot;Cannot mark &#x27;Example Manufacturing&#x27; ICP Approved: no structured Evidence record supports the company fit. A classification or fit column set without a supporting Evidence row is not enough.&quot;,
+      &quot;rows&quot;: [
+        [
+          &quot;Research approval&quot;,
+          &quot;Blocked&quot;
+        ],
+        [
+          &quot;Classification may support commercial qualification&quot;,
+          &quot;No&quot;
+        ],
+        [
+          &quot;Actual opportunity created&quot;,
+          &quot;No, additional opportunity guards still apply&quot;
+        ],
+        [
+          &quot;Company record&quot;,
+          &quot;Synthetic .example company&quot;
+        ]
+      ],
+      &quot;trace&quot;: {
+        &quot;classification&quot;: null,
+        &quot;research_approved&quot;: false,
+        &quot;qualifying_classification&quot;: false,
+        &quot;scope&quot;: &quot;Classification eligibility does not by itself create an opportunity or verify factual truth.&quot;
+      }
+    },
+    {
+      &quot;name&quot;: &quot;Unsupported assumption&quot;,
+      &quot;summary&quot;: &quot;Cannot mark &#x27;Example Manufacturing&#x27; ICP Approved: no structured Evidence record supports the company fit. A classification or fit column set without a supporting Evidence row is not enough.&quot;,
+      &quot;rows&quot;: [
+        [
+          &quot;Research approval&quot;,
+          &quot;Blocked&quot;
+        ],
+        [
+          &quot;Classification may support commercial qualification&quot;,
+          &quot;No&quot;
+        ],
+        [
+          &quot;Actual opportunity created&quot;,
+          &quot;No, additional opportunity guards still apply&quot;
+        ],
+        [
+          &quot;Company record&quot;,
+          &quot;Synthetic .example company&quot;
+        ]
+      ],
+      &quot;trace&quot;: {
+        &quot;classification&quot;: &quot;Unsupported Assumption&quot;,
+        &quot;research_approved&quot;: false,
+        &quot;qualifying_classification&quot;: false,
+        &quot;scope&quot;: &quot;Classification eligibility does not by itself create an opportunity or verify factual truth.&quot;
+      }
+    },
+    {
+      &quot;name&quot;: &quot;Research inference&quot;,
+      &quot;summary&quot;: &quot;Research approval gate accepted the structured evidence.&quot;,
+      &quot;rows&quot;: [
+        [
+          &quot;Research approval&quot;,
+          &quot;Accepted&quot;
+        ],
+        [
+          &quot;Classification may support commercial qualification&quot;,
+          &quot;No&quot;
+        ],
+        [
+          &quot;Actual opportunity created&quot;,
+          &quot;No, additional opportunity guards still apply&quot;
+        ],
+        [
+          &quot;Company record&quot;,
+          &quot;Synthetic .example company&quot;
+        ]
+      ],
+      &quot;trace&quot;: {
+        &quot;classification&quot;: &quot;Inference&quot;,
+        &quot;research_approved&quot;: true,
+        &quot;qualifying_classification&quot;: false,
+        &quot;scope&quot;: &quot;Classification eligibility does not by itself create an opportunity or verify factual truth.&quot;
+      }
+    },
+    {
+      &quot;name&quot;: &quot;Confirmed synthetic fact&quot;,
+      &quot;summary&quot;: &quot;Research approval gate accepted the structured evidence.&quot;,
+      &quot;rows&quot;: [
+        [
+          &quot;Research approval&quot;,
+          &quot;Accepted&quot;
+        ],
+        [
+          &quot;Classification may support commercial qualification&quot;,
+          &quot;Yes&quot;
+        ],
+        [
+          &quot;Actual opportunity created&quot;,
+          &quot;No, additional opportunity guards still apply&quot;
+        ],
+        [
+          &quot;Company record&quot;,
+          &quot;Synthetic .example company&quot;
+        ]
+      ],
+      &quot;trace&quot;: {
+        &quot;classification&quot;: &quot;Confirmed Fact&quot;,
+        &quot;research_approved&quot;: true,
+        &quot;qualifying_classification&quot;: true,
+        &quot;scope&quot;: &quot;Classification eligibility does not by itself create an opportunity or verify factual truth.&quot;
+      }
+    }
+  ]
+}</pre></details></aside></section></main><footer>Feras Elghandour · Applied AI &amp; decision systems<br>Public demonstrations use attributed public data or synthetic examples. Client identities and private operating records are omitted.</footer><script type="application/json" id="report-data">{"kind": "crm", "input_type": "synthetic fixtures; no client data", "scenarios": [{"name": "No supporting evidence", "summary": "Cannot mark 'Example Manufacturing' ICP Approved: no structured Evidence record supports the company fit. A classification or fit column set without a supporting Evidence row is not enough.", "rows": [["Research approval", "Blocked"], ["Classification may support commercial qualification", "No"], ["Actual opportunity created", "No, additional opportunity guards still apply"], ["Company record", "Synthetic .example company"]], "trace": {"classification": null, "research_approved": false, "qualifying_classification": false, "scope": "Classification eligibility does not by itself create an opportunity or verify factual truth."}}, {"name": "Unsupported assumption", "summary": "Cannot mark 'Example Manufacturing' ICP Approved: no structured Evidence record supports the company fit. A classification or fit column set without a supporting Evidence row is not enough.", "rows": [["Research approval", "Blocked"], ["Classification may support commercial qualification", "No"], ["Actual opportunity created", "No, additional opportunity guards still apply"], ["Company record", "Synthetic .example company"]], "trace": {"classification": "Unsupported Assumption", "research_approved": false, "qualifying_classification": false, "scope": "Classification eligibility does not by itself create an opportunity or verify factual truth."}}, {"name": "Research inference", "summary": "Research approval gate accepted the structured evidence.", "rows": [["Research approval", "Accepted"], ["Classification may support commercial qualification", "No"], ["Actual opportunity created", "No, additional opportunity guards still apply"], ["Company record", "Synthetic .example company"]], "trace": {"classification": "Inference", "research_approved": true, "qualifying_classification": false, "scope": "Classification eligibility does not by itself create an opportunity or verify factual truth."}}, {"name": "Confirmed synthetic fact", "summary": "Research approval gate accepted the structured evidence.", "rows": [["Research approval", "Accepted"], ["Classification may support commercial qualification", "Yes"], ["Actual opportunity created", "No, additional opportunity guards still apply"], ["Company record", "Synthetic .example company"]], "trace": {"classification": "Confirmed Fact", "research_approved": true, "qualifying_classification": true, "scope": "Classification eligibility does not by itself create an opportunity or verify factual truth."}}]}</script><script src="report.js" defer></script></body></html>

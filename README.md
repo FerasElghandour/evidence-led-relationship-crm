@@ -4,6 +4,10 @@
 
 Keep company fit, observed engagement, lead qualification, and sales opportunities distinct and supported by evidence.
 
+**[Explore the interactive demonstration](https://feraselghandour.github.io/evidence-led-relationship-crm/)** · [Operating scope](OPERATIONS.md)
+
+[![Interactive demonstration](assets/demo-preview.png)](https://feraselghandour.github.io/evidence-led-relationship-crm/)
+
 ## Implementation
 
 A local Streamlit application backed by SQLAlchemy and SQLite. Explicit state-transition gates protect qualification; employment history is retained; structured evidence supports opportunities; and historical imports are separated from experiment-period metrics.
@@ -37,3 +41,7 @@ The app opens at `http://localhost:8501`. `ICP_CRM_DATABASE_URL` selects an alte
 A local single-user application. It does not automate outreach, scrape profiles, or provide a production authentication layer. No generated leads, attributable sales, or commercial uplift is claimed from test success.
 
 [Validation record](VALIDATION.md) · [Inputs and applicable notices](DATA.md)
+
+## Rebuild the public demonstration
+
+Run `python demo/generate.py` to execute the synthetic scenarios through the actual implementation, then `python build_report.py`. The hosted page is a static evidence explorer; the Python application and full experiments run separately.

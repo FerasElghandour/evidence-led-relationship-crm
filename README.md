@@ -12,12 +12,24 @@ Keep company fit, observed engagement, lead qualification, and sales opportuniti
 
 A local Streamlit application backed by SQLAlchemy and SQLite. Explicit state-transition gates protect qualification; employment history is retained; structured evidence supports opportunities; and historical imports are separated from experiment-period metrics.
 
-```mermaid
-flowchart LR
- A[Company and person research] --> B[Evidence and access gates]
- B --> C[Human engagement and observed outcome]
- C --> D[Qualified lead]
- D --> E[Evidence-backed opportunity and learning]
+![Implementation mechanism: Structured evidence classification → Research-approval stage guard → Separate commercial-qualification eligibility → Additional opportunity guards → Persist state and evidence trail](assets/mechanism.svg)
+
+## Try a small example
+
+Fictional records exercise actual stage guards. An inference may support research approval without qualifying an opportunity; classification does not establish factual truth.
+
+After the local setup below, run from the repository root:
+
+```sh
+python examples/quickstart.py
+```
+
+The [example source](examples/quickstart.py), [captured output](examples/expected-output.txt) and [execution record](examples/environment.json) keep this demonstration inspectable. Floating-point values may vary with library versions.
+
+Observed output from this run:
+
+```text
+[{'name': 'No supporting evidence', 'classification': None, 'research_approved': False, 'qualifying_classification': False, 'scope': 'Classification eligibility does not by itself create an opportunity or verify factual truth.'}, {'name': 'Unsupported assumption', 'classification': 'Unsupported Assumption', 'research_approved': False, 'qualifying_classification': False, 'scope': 'Classification eligibility does not by itself create an opportunity or verify factual truth.'}, {'name': 'Research inference', 'classification': 'Inference', 'research_approved': True, 'qualifying_classification': False, 'scope': 'Classification eligibility does not by itself create an opportunity or verify factual truth.'}, {'name': 'Confirmed synthetic fact', 'classification': 'Confirmed Fact', 'research_approved': True, 'qualifying_classification': True, 'scope': 'Classification eligibility does not by itself create an opportunity or verify factual truth.'}]
 ```
 
 ## Evidence and results

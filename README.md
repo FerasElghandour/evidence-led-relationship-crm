@@ -14,6 +14,15 @@ A local Streamlit application backed by SQLAlchemy and SQLite. Explicit state-tr
 
 ![Implementation mechanism: Structured evidence classification → Research-approval stage guard → Separate commercial-qualification eligibility → Additional opportunity guards → Persist state and evidence trail](assets/mechanism.svg)
 
+
+
+## Reproduce and inspect
+
+The executable reproduction profile now records exact commands, input/source hashes, dependency versions, logs and pass/fail status. Its scope distinguishes behavior checks from full-data benchmarks.
+
+[Commands, artifacts and benchmark scope](BENCHMARKS.md) · [Versioned profiles](reproduction.json)
+
+
 ## Try a small example
 
 Fictional records exercise actual stage guards. An inference may support research approval without qualifying an opportunity; classification does not establish factual truth.
